@@ -7,7 +7,7 @@ package com.senac.astec.servlet;
 
 
 import com.senac.astec.model.Imovel;
-import com.senac.astec.service.ServicoProduto;
+import com.senac.astec.service.ServicoImovel;
 import java.io.IOException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;

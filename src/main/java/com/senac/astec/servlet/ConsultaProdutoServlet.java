@@ -7,7 +7,7 @@
 package com.senac.astec.servlet;
 
 import com.senac.astec.model.Imovel;
-import com.senac.astec.service.ServicoProduto;
+import com.senac.astec.service.ServicoImovel;
 import java.io.IOException;
 import java.util.ArrayList;
 import javax.servlet.RequestDispatcher;
@@ -26,7 +26,7 @@ public class ConsultaProdutoServlet extends HttpServlet {
             throws ServletException, IOException {
           HttpSession sessao = request.getSession();
           ArrayList<Imovel> Lista = new ArrayList();
-          ServicoProduto sp = new ServicoProduto();
+          ServicoImovel sp = new ServicoImovel();
           String codigoempresa = (String) sessao.getAttribute("Empresa");
           
           try {

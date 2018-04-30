@@ -9,7 +9,7 @@ import com.senac.astec.model.Imovel;
 import java.io.IOException;
 import java.util.List;
 //Classe de Servico de Produto
-public class ServicoProduto {
+public class ServicoImovel {
     ImovelDAO imovelDAO = new ImovelDAO();
     
     public void cadastrarProduto(Imovel imovel) throws IOException {

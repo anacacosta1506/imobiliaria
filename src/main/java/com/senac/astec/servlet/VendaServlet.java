@@ -11,7 +11,7 @@ import com.senac.astec.model.Imovel;
 import com.senac.astec.model.Venda;
 import com.senac.astec.service.ServicoCliente;
 import com.senac.astec.service.ServicoItemVenda;
-import com.senac.astec.service.ServicoProduto;
+import com.senac.astec.service.ServicoImovel;
 import com.senac.astec.service.ServicoVenda;
 import java.io.IOException;
 import java.util.ArrayList;

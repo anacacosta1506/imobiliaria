@@ -10,7 +10,7 @@ import com.senac.astec.model.Cliente;
 import com.senac.astec.model.Login;
 import java.io.IOException;
 import java.util.List;
-//Classe de servico do cliente
+
 public class ServicoUsuario {
      UsuarioDAO usuarioDAO = new UsuarioDAO();
      
@@ -25,21 +25,16 @@ public class ServicoUsuario {
         }
     }
 
-    //Atualiza um cliente na fonte de dados
-    public void atualizarUsuario(int codigo, int codigoempresa, int codigoperfil, String nome, String login, String senha) throws IOException, Exception {
+    public void atualizarUsuario(int idLogin, String nome, String login, String senha, String tipoLogin)
+            throws IOException, Exception {
         
-        //ValidadorCliente.validar(cliente);
-
         try {
-            usuarioDAO.updateUsuario(codigo, codigoempresa, codigoperfil, nome, login, senha);
+            usuarioDAO.updateUsuario(idLogin, nome, login, senha, tipoLogin);
         } catch (Exception e) {
-            //Imprime qualquer erro técnico no console e devolve
-            //uma exceção e uma mensagem amigável a camada de visão
             e.printStackTrace();
         }
     }
 
-    //Realiza a pesquisa de um cliente por nome na fonte de dados
     public List<Login> listarUsuarios(String nome, int empresa) throws IOException, Exception {
         try {
             return usuarioDAO.listarUsuario(nome, empresa);
@@ -51,10 +46,9 @@ public class ServicoUsuario {
         }
     }
     
-    //Pesquisa usuario especificado 
-    public Login retornaUsuario(int codigousuario, int empresa) throws IOException{
+    public Login retornaUsuario(int idLogin, String login) throws IOException{
         try {
-            return usuarioDAO.encontrarUmUsuario(codigousuario, empresa);
+            return usuarioDAO.encontrarUmUsuario(idLogin, login);
             
         } catch (Exception e) {
             e.printStackTrace();
@@ -62,21 +56,18 @@ public class ServicoUsuario {
         }
     }
     
-    //Pesquisa usuario especificado por login para saber se já existe
-    public boolean retornaUsuario(String login, int empresa) throws IOException{
+    public boolean retornaUsuario(String login) throws IOException{
         try {
-            return usuarioDAO.encontrarUsuarioNome(login, empresa);
+            return usuarioDAO.encontrarUsuarioNome(login);
             
         } catch (Exception e) {
             e.printStackTrace();
             return false;
         }
     }
-    
-    //Pesquisa usuario por login e senha 
     public Login retornaUsuarioLogin(String login, String senha, int empresa) throws IOException{
         try {
-            return usuarioDAO.encontrarUsuario(login, senha, empresa);
+            return usuarioDAO.encontrarUsuario(login, senha);
             
         } catch (Exception e) {
             e.printStackTrace();
@@ -84,14 +75,10 @@ public class ServicoUsuario {
         }
     }
 
-    //Exclui o cliente com ID informado do mock
-    public void excluirUsuario(int codigo, int  codigoempresa) throws IOException, Exception {
+    public void excluirUsuario(int idLogin) throws IOException, Exception {
         try {
-            //Solicita ao DAO a exclusão do cliente informado
-            usuarioDAO.deletarUsuario(codigo, codigoempresa);
+            usuarioDAO.deletarUsuario(idLogin);
         } catch (Exception e) {
-            //Imprime qualquer erro técnico no console e devolve
-            //uma exceção e uma mensagem amigável a camada de visão
             e.printStackTrace();
         }
     }
